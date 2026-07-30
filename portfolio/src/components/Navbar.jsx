@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
+import { NavLink, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Code2 } from 'lucide-react'
 
 const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', to: '/' },
+  { name: 'About', to: '/about' },
+  { name: 'Skills', to: '/skills' },
+  { name: 'Projects', to: '/projects' },
+  { name: 'Contact', to: '/contact' },
 ]
 
 export default function Navbar() {
@@ -32,32 +33,44 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-6 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2 group">
+        <Link to="/" className="flex items-center gap-2 group">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:scale-110 transition-transform">
             <Code2 className="w-5 h-5 text-white" />
           </div>
           <span className="text-xl font-bold font-mono">
             JH<span className="gradient-text">.dev</span>
           </span>
-        </a>
+        </Link>
 
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <NavLink
               key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-slate-400 hover:text-white transition-colors relative group"
+              to={link.to}
+              className={({ isActive }) =>
+                `text-sm font-medium transition-colors relative group ${
+                  isActive ? 'text-white' : 'text-slate-400 hover:text-white'
+                }`
+              }
             >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300" />
-            </a>
+              {({ isActive }) => (
+                <>
+                  {link.name}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 ${
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
+                  />
+                </>
+              )}
+            </NavLink>
           ))}
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary to-secondary text-white text-sm font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all hover:scale-105"
           >
             Contact Me
-          </a>
+          </Link>
         </div>
 
         <button
@@ -78,14 +91,16 @@ export default function Navbar() {
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <NavLink
                   key={link.name}
-                  href={link.href}
+                  to={link.to}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-slate-300 hover:text-white transition-colors py-2"
+                  className={({ isActive }) =>
+                    `transition-colors py-2 ${isActive ? 'text-white' : 'text-slate-300 hover:text-white'}`
+                  }
                 >
                   {link.name}
-                </a>
+                </NavLink>
               ))}
             </div>
           </motion.div>

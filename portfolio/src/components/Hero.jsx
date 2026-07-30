@@ -51,14 +51,14 @@ export default function Hero() {
 
           <div className="flex flex-wrap gap-4 mb-8">
             <a
-              href="#projects"
+              href="/projects"
               className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all hover:scale-105 flex items-center gap-2"
             >
               View My Work
               <ArrowDown className="w-4 h-4" />
             </a>
             <a
-              href="#contact"
+              href="/contact"
               className="px-8 py-3.5 rounded-xl glass text-white font-semibold hover:bg-slate-800 transition-all hover:scale-105"
             >
               Contact Me
@@ -122,7 +122,7 @@ export default function Hero() {
         transition={{ duration: 2, repeat: Infinity }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <a href="#about" className="text-slate-500 hover:text-white transition-colors">
+        <a href="/about" className="text-slate-500 hover:text-white transition-colors">
           <ArrowDown className="w-6 h-6" />
         </a>
       </motion.div>

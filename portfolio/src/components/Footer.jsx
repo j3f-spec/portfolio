@@ -18,9 +18,11 @@ export default function Footer() {
           <div className="flex items-center gap-6 text-slate-400">
             <a href="#" className="hover:text-primary transition-colors">Privacy</a>
             <a href="#" className="hover:text-primary transition-colors">Terms</a>
-            <a href="#" className="hover:text-primary transition-colors">Resume</a>
+            <a href="/resume" className="hover:text-primary transition-colors">Resume</a>
           </div>
-
+        
+          {/*<Link to="/Resume">Contact Me</Link>*/}
+                    
           <div className="flex gap-4">
             {[Github, Linkedin, Twitter].map((Icon, i) => (
               <a
@@ -36,7 +38,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-slate-500 flex items-center gap-1">
-            Made with <Heart className="w-4 h-4 text-secondary fill-secondary" /> by JH Dev
+            {/* Made with <Heart className="w-4 h-4 text-secondary fill-secondary" />*/} by JH
           </p>
           <p className="text-sm text-slate-500">
             &copy; {new Date().getFullYear()} All rights reserved.

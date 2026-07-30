@@ -2,7 +2,33 @@ import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { ExternalLink, Github, Star } from 'lucide-react'
 
-const projects = [
+const projects=[
+  {
+    title: 'E-Commerce Platform',
+    description: 'A full-stack e-commerce solution with real-time inventory, payment processing, and admin dashboard.',
+    tags: ['React', 'Node.js', 'PostgreSQL', 'SpringBoot'],
+    github: '#',
+    live: '#',
+    featured: true,
+  },
+  {
+    title: 'Real Estate Platform',
+    description: 'Property listing and management system with virtual tours and mortgage calculator.',
+    tags: ['React', 'Node.js', 'MongoDB', 'AWS'],
+    github: '#',
+    live: '#',
+    featured: false,
+  },
+  {
+    title: 'Hotel Management System',
+    description: 'Hotel Management operations tracking application system.',
+    tags: ['React Native', 'Firebase', 'Redux', 'Spring'],
+    github: '#',
+    live: '#',
+    featured: false,
+  },
+]
+const project = [
   {
     title: 'E-Commerce Platform',
     description: 'A full-stack e-commerce solution with real-time inventory, payment processing, and admin dashboard.',
@@ -51,6 +77,7 @@ const projects = [
     live: '#',
     featured: false,
   },
+  
 ]
 
 const gradients = [

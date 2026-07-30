@@ -3,9 +3,9 @@ import { useRef, useState } from 'react'
 import { Mail, MapPin, Phone, Send, CheckCircle } from 'lucide-react'
 
 const contactInfo = [
-  { icon: Mail, label: 'Email', value: 'alex@developer.com' },
-  { icon: Phone, label: 'Phone', value: '+1 (555) 123-4567' },
-  { icon: MapPin, label: 'Location', value: 'San Francisco, CA' },
+  { icon: Mail, label: 'Email', value: 'j3f.dev@gmail.com' },
+  { icon: Phone, label: 'Phone', value: '+254 759 063224' },
+  { icon: MapPin, label: 'Location', value: 'Nairobi, Kenya' },
 ]
 
 export default function Contact() {

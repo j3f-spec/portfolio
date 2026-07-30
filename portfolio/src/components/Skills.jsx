@@ -90,7 +90,7 @@ export default function Skills() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-16 flex flex-wrap justify-center gap-4"
         >
-          {['React', 'Node.js', 'TypeScript', 'Python', 'AWS', 'Docker', 'PostgreSQL', 'GraphQL'].map((tech) => (
+          {['SpringBoot','Java', 'React', 'Node.js', 'TypeScript', 'Docker', 'PostgreSQL', 'Javascript'].map((tech) => (
             <span
               key={tech}
               className="px-4 py-2 rounded-lg glass text-sm text-slate-300 hover:text-white hover:border-primary/50 transition-all cursor-default"
