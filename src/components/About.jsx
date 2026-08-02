@@ -40,7 +40,7 @@ export default function About() {
                 <div className="w-full h-full rounded-2xl bg-dark-light flex items-center justify-center">
                   <div className="text-center p-8">
                     <div className="w-40 h-40 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                      <span className="text-7xl font-bold text-white">A</span>
+                      <span className="text-7xl font-bold text-white">JH</span>
                     </div>
                     <p className="text-slate-400 font-mono">Your photo here</p>
                   </div>

@@ -6,7 +6,7 @@ const experience = [
   {
     title: 'Full Stack Developer',
     company: 'Tech Company',
-    period: '2022 - Present',
+    period: '2025 - Present',
     description: [
       'Developed and maintained web applications using React and Node.js',
       'Implemented RESTful APIs and integrated with PostgreSQL databases',
@@ -17,7 +17,7 @@ const experience = [
   {
     title: 'Junior Developer',
     company: 'Startup Inc',
-    period: '2020 - 2022',
+    period: '2022 - 2025',
     description: [
       'Built responsive user interfaces with React and Tailwind CSS',
       'Assisted in backend development using SpringBoot and Java',
@@ -30,9 +30,9 @@ const experience = [
 const education = [
   {
     degree: 'Bachelor of Science in Computer Science',
-    institution: 'University of Technology',
-    period: '2016 - 2020',
-    details: 'Graduated with Honors',
+    institution: 'Technical University of Mombasa',
+    period: '2023 - ',
+    details: 'Ongoing',
   },
 ]
 
@@ -81,7 +81,7 @@ export default function Resume() {
         >
           <div className="text-center mb-6">
             <h2 className="text-3xl font-bold mb-2">
-              JH<span className="gradient-text">.dev</span>
+              Jeph Humphrey<span className="gradient-text">.</span>
             </h2>
             <p className="text-xl text-slate-400">Full Stack Developer</p>
           </div>

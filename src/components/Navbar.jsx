@@ -38,7 +38,7 @@ export default function Navbar() {
             <Code2 className="w-5 h-5 text-white" />
           </div>
           <span className="text-xl font-bold font-mono">
-            JH<span className="gradient-text">.dev</span>
+            <span className="gradient-text">dev</span>
           </span>
         </Link>
 

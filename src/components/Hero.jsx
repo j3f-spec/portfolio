@@ -34,7 +34,7 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-            Hi, I&apos;m <span className="gradient-text">JH</span>
+            Hi, I&apos;m <span className="gradient-text">Humphrey</span>
           </h1>
 
           <div className="h-16 mb-8">
@@ -90,7 +90,7 @@ export default function Hero() {
             <div className="absolute inset-4 rounded-2xl glass flex items-center justify-center">
               <div className="text-center">
                 <div className="w-32 h-32 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center glow">
-                  <span className="text-6xl font-bold text-white">A</span>
+                  <span className="text-6xl font-bold text-white">JH</span>
                 </div>
                 <div className="font-mono text-sm text-slate-400 space-y-1">
                   <p>{'<Developer />'}</p>
