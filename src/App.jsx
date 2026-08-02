@@ -40,16 +40,7 @@ function AppContent() {
           <Routes>
             <Route
               path="/"
-              element={
-                <>
-                  <Hero />{/*
-                  <About />
-                  <Skills />
-                  <Projects />
-                  <Contact />
-                  */}
-                </>
-              }
+              element={<Hero />}
             />
             <Route path="/about" element={<About />} />
             <Route path="/skills" element={<Skills />} />

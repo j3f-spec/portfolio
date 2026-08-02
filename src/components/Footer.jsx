@@ -1,4 +1,5 @@
 import { Heart, Github, Linkedin, Twitter, ArrowUp } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -18,7 +19,7 @@ export default function Footer() {
           <div className="flex items-center gap-6 text-slate-400">
             <a href="#" className="hover:text-primary transition-colors">Privacy</a>
             <a href="#" className="hover:text-primary transition-colors">Terms</a>
-            <a href="/resume" className="hover:text-primary transition-colors">Resume</a>
+            <Link to="/Resume" className="hover:text-primary transition-colors">Resume</Link>
           </div>
         
           {/*<Link to="/Resume">Contact Me</Link>*/}
