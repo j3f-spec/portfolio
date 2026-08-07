@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { Mail, MapPin, Phone, Send, CheckCircle } from 'lucide-react'
 
 const contactInfo = [
@@ -8,19 +9,45 @@ const contactInfo = [
   { icon: MapPin, label: 'Location', value: 'Nairobi, Kenya' },
 ]
 
+const sanitizeText = (value) => value.replace(/<[^>]*>/g, '').trim()
+
+const isValidEmail = (value) => {
+  const normalized = value.trim()
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized)
+}
+
 export default function Contact() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const formRef = useRef(null)
   const [formState, setFormState] = useState({ name: '', email: '', message: '' })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSending, setIsSending] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setIsSubmitted(true)
-    setTimeout(() => {
-      setIsSubmitted(false)
+    setSubmitError('')
+    setIsSending(true)
+
+    // Replace these environment variables with your EmailJS values.
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_ryt5e0v'
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_9qhdo9y'
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'JkG1wweCbW3a4eJks'
+
+    try {
+      await emailjs.sendForm(serviceId, templateId, formRef.current, publicKey)
+      setIsSubmitted(true)
       setFormState({ name: '', email: '', message: '' })
-    }, 3000)
+      if (formRef.current) formRef.current.reset()
+    } catch (err) {
+      console.error('EmailJS error:', err)
+      setSubmitError('Failed to send message. Please try again later or contact via email.')
+    } finally {
+      setIsSending(false)
+      // auto-hide success after a short delay
+      setTimeout(() => setIsSubmitted(false), 4000)
+    }
   }
 
   return (
@@ -76,7 +103,7 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <form onSubmit={handleSubmit} className="p-8 rounded-2xl glass space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="p-8 rounded-2xl glass space-y-6">
               {isSubmitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -93,6 +120,7 @@ export default function Contact() {
                     <label className="block text-sm font-medium text-slate-400 mb-2">Name</label>
                     <input
                       type="text"
+                      name="from_name"
                       required
                       value={formState.name}
                       onChange={(e) => setFormState({ ...formState, name: e.target.value })}
@@ -104,6 +132,7 @@ export default function Contact() {
                     <label className="block text-sm font-medium text-slate-400 mb-2">Email</label>
                     <input
                       type="email"
+                      name="reply_to"
                       required
                       value={formState.email}
                       onChange={(e) => setFormState({ ...formState, email: e.target.value })}
@@ -114,6 +143,7 @@ export default function Contact() {
                   <div>
                     <label className="block text-sm font-medium text-slate-400 mb-2">Message</label>
                     <textarea
+                      name="message"
                       required
                       rows={4}
                       value={formState.message}
@@ -122,12 +152,14 @@ export default function Contact() {
                       placeholder="Tell me about your project..."
                     />
                   </div>
+                  {submitError && <p className="text-sm text-rose-400">{submitError}</p>}
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all hover:scale-[1.02] flex items-center justify-center gap-2"
+                    disabled={isSending}
+                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-60"
                   >
                     <Send className="w-4 h-4" />
-                    Send Message
+                    {isSending ? 'Sending...' : 'Send Message'}
                   </button>
                 </>
               )}

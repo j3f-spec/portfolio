@@ -7,6 +7,12 @@ export default function Hero() {
   const fullText = 'Full Stack Developer'
   const [index, setIndex] = useState(0)
 
+  const socialLinks = [
+    { name: 'GitHub', icon: Github, url: 'https://github.com/j3f-spec' },
+    { name: 'LinkedIn', icon: Linkedin, url: 'https://www.linkedin.com/in/jeff-h-m-dev' },
+    { name: 'Twitter', icon: Twitter, url: 'https://twitter.com/' },
+  ]
+
   useEffect(() => {
     if (index < fullText.length) {
       const timeout = setTimeout(() => {
@@ -65,16 +71,19 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="flex gap-4">
-            {[Github, Linkedin, Twitter].map((Icon, i) => (
-              <motion.a
-                key={i}
-                href="#"
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="w-11 h-11 rounded-xl glass flex items-center justify-center text-slate-400 hover:text-white hover:border-primary/50 transition-colors"
+           <div className="flex gap-4">
+            {socialLinks.map(({ name, icon: Icon, url }) => (
+              <a
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={name}
+                title={name}
+                className="w-10 h-10 rounded-lg glass flex items-center justify-center text-slate-400 hover:text-white hover:border-primary/50 transition-all"
               >
-                <Icon className="w-5 h-5" />
-              </motion.a>
+                <Icon className="w-4 h-4" />
+              </a>
             ))}
           </div>
         </motion.div>
