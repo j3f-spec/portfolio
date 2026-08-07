@@ -101,7 +101,7 @@ export default function Resume() {
             </div>
             <div className="flex items-center gap-3 text-slate-300">
               <Github className="w-5 h-5 text-primary" />
-              <span>github.com/j3f</span>
+              <span>github.com/hetch-4</span>
             </div>
           </div>
 

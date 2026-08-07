@@ -4,9 +4,9 @@ import { useRef } from 'react'
 import { Calendar, MapPin, Coffee, Award } from 'lucide-react'
 
 const stats = [
-  { icon: Calendar, label: 'Years Experience', value: '5+' },
+  { icon: Calendar, label: 'Years Experience', value: '2+' },
   { icon: Coffee, label: 'Cups of Coffee', value: '999+' },
-  { icon: Award, label: 'Projects Completed', value: '50+' },
+  { icon: Award, label: 'Projects Completed', value: '10+' },
   { icon: MapPin, label: 'Location', value: 'Remote' },
 ]
 

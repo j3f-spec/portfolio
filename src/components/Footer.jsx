@@ -6,6 +6,12 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  const socialLinks = [
+    { name: 'GitHub', icon: Github, url: 'https://github.com/j3f-spec' },
+    { name: 'LinkedIn', icon: Linkedin, url: 'https://www.linkedin.com/in/jeff-h-m-dev' },
+    { name: 'Twitter', icon: Twitter, url: 'https://twitter.com/' },
+  ]
+
   return (
     <footer className="py-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-6">
@@ -17,18 +23,22 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-6 text-slate-400">
-            <a href="#" className="hover:text-primary transition-colors">Privacy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms</a>
-            <Link to="/Resume" className="hover:text-primary transition-colors">Resume</Link>
+            <Link to="/privacy" className="hover:text-primary transition-colors">Privacy</Link>
+            <Link to="/terms" className="hover:text-primary transition-colors">Terms</Link>
+            <Link to="/resume" className="hover:text-primary transition-colors">Resume</Link>
           </div>
         
           {/*<Link to="/Resume">Contact Me</Link>*/}
                     
           <div className="flex gap-4">
-            {[Github, Linkedin, Twitter].map((Icon, i) => (
+            {socialLinks.map(({ name, icon: Icon, url }) => (
               <a
-                key={i}
-                href="#"
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={name}
+                title={name}
                 className="w-10 h-10 rounded-lg glass flex items-center justify-center text-slate-400 hover:text-white hover:border-primary/50 transition-all"
               >
                 <Icon className="w-4 h-4" />
@@ -39,7 +49,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-slate-500 flex items-center gap-1">
-            {/* Made with <Heart className="w-4 h-4 text-secondary fill-secondary" />*/} by JH
+            {/* Made with <Heart className="w-4 h-4 text-secondary fill-secondary" />*/}Jh
           </p>
           <p className="text-sm text-slate-500">
             &copy; {new Date().getFullYear()} All rights reserved.

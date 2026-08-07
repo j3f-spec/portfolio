@@ -14,7 +14,7 @@ const projects=[
   {
     title: 'Real Estate Platform',
     description: 'Property listing and management system with virtual tours and mortgage calculator.',
-    tags: ['React', 'Node.js', 'MongoDB', 'AWS'],
+    tags: ['React', 'Node.js', 'Postgres', 'Firebase'],
     github: '#',
     live: '#',
     featured: false,
@@ -22,7 +22,7 @@ const projects=[
   {
     title: 'Hotel Management System',
     description: 'Hotel Management operations tracking application system.',
-    tags: ['React Native', 'Firebase', 'Redux', 'Spring'],
+    tags: ['React Native', 'Firebase', 'PostgreSQL', 'SpringBoot'],
     github: '#',
     live: '#',
     featured: false,

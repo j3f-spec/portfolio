@@ -7,6 +7,8 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Resume from './components/Resume'
+import Terms from './components/Terms'
+import Privacy from './components/Privacy'
 import Footer from './components/Footer'
 
 function AppContent() {
@@ -48,6 +50,8 @@ function AppContent() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/resume" element={<Resume />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
